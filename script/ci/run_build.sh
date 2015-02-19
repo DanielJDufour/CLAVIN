@@ -4,4 +4,3 @@ unzip allCountries.zip
 mvn compile
 MAVEN_OPTS="-Xmx4g" mvn exec:java -Dexec.mainClass="com.bericotech.clavin.index.IndexDirectoryBuilder"
 mvn package
-
