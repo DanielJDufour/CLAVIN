@@ -15,6 +15,8 @@ import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.apache.commons.lang.StringUtils;
+
 /*#####################################################################
  *
  * CLAVIN (Cartographic Location And Vicinity INdexer)
@@ -454,13 +456,35 @@ public class GeoName {
         return admLevel;
     }
 
+    
+    public String[] wrapArray(String a [], String b){
+        String c [] = new String[a.length];
+        for (int i = 0; i < a.length; i++){
+            c[i] = b + a[i] + b;
+        }
+        return c;
+    }
+
+    
+    public ArrayList<String> wrapList(List<String> a, String b){
+        ArrayList<String> c = new ArrayList<String>(a.size());
+        for (String d : a){
+            c.add(b + d + b);
+        }
+        return c;
+    }
+
+
+
+
     /**
      * For pretty-printing.
      *
      */
     @Override
     public String toString() {
-        return getPreferredName() + " (" + getPrimaryCountryName() + ", " + admin1Code + ")" + " [pop: " + population + "] <" + geonameID + ">";
+
+        return "{\"id\": " + geonameID + ", \"name\": \"" + name + "\", \"asciiName\": \"" + asciiName + "\", \"alternateNames\": " + wrapList(alternateNames, "\"").toString() + ", \"latitude\":" + latitude + ", \"longitude\": " + longitude + ", \"preferredNamed\": \"" + preferredName + "\", \"primaryCountryCode\": \"" + primaryCountryCode + "\", \"admin1Code\": \"" + admin1Code + "\", \"admin2Code\": \"" + admin2Code + "\", \"admin3Code\": \"" + admin3Code + "\", \"admin4Code\": \"" + admin4Code + "\", \"alternateCountryCodes\": " + alternateCountryCodes.toString() + "}";
     }
 
     /**

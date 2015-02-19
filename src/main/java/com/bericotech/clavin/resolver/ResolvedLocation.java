@@ -108,8 +108,11 @@ public class ResolvedLocation {
      */
     @Override
     public String toString() {
+        /*
         return String.format("Resolved \"%s\" as: \"%s\" {%s}, position: %s, confidence: %f, fuzzy: %s",
                 location.getText(), matchedName, geoname, location.getPosition(), confidence, fuzzy);
+        */
+        return "{\"geoname\": " + geoname + ", \"location_text\": \"" + location.getText() + "\", \"confidence\": " + confidence + ", \"fuzzy\": " + fuzzy + ", \"location_position\": \"" + location.getPosition() + "\"}";
     }
 
     /**

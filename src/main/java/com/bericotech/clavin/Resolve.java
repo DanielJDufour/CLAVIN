@@ -49,23 +49,18 @@ public class Resolve {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println("Starting Resolve's main function");
        
         // Instantiate the CLAVIN GeoParser
         GeoParser parser = GeoParserFactory.getDefault("./IndexDirectory");
         
-        // Grab the contents of the text file as a String
-        String inputString = args[0];
+        // Grab the string to parse and resolve
+        String inputString = System.getProperty("stringForClavin");
         
         // Parse location names in the text into geographic entities
         List<ResolvedLocation> resolvedLocations = parser.parse(inputString);
         
-        // Display the ResolvedLocations found for the location names
-        for (ResolvedLocation resolvedLocation : resolvedLocations)
-            System.out.println(resolvedLocation);
-        
-        // And we're done...
-        System.out.println("\n\"That's all folks!\"");
+        // Display JSON of ResolvedLocations
+        System.out.print("{\"locations\": " + resolvedLocations.toString() + "}");
 
     }
 }
