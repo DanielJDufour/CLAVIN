@@ -15,8 +15,6 @@ import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.apache.commons.lang.StringUtils;
-
 /*#####################################################################
  *
  * CLAVIN (Cartographic Location And Vicinity INdexer)
