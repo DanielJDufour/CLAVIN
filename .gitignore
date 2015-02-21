@@ -1,3 +1,4 @@
+*.java~
 target/**
 indexDirectory*/**
 IndexDirectory*/
